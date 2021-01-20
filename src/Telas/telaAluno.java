@@ -365,6 +365,11 @@ public class telaAluno extends javax.swing.JFrame {
         });
         jTable.setGridColor(new java.awt.Color(0, 0, 0));
         jTable.setSelectionBackground(new java.awt.Color(255, 255, 51));
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
         jTable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTableKeyReleased(evt);
@@ -537,6 +542,25 @@ public class telaAluno extends javax.swing.JFrame {
     private void CPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CPFActionPerformed
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        int selecionado = jTable.getSelectedRow();
+        String nome = (String) jTable.getValueAt(selecionado, 1);
+        String cpf = (String) jTable.getValueAt(selecionado, 2);
+        String rua = (String) jTable.getValueAt(selecionado, 3);
+        String nro = (String) jTable.getValueAt(selecionado, 4);
+        String bairro = (String) jTable.getValueAt(selecionado, 5);
+        String categoria = (String) jTable.getValueAt(selecionado, 6);
+        String sexo = (String) jTable.getValueAt(selecionado, 7);
+
+        NOME.setText(nome);
+        CPF.setText(cpf);
+        RUA.setText(rua);
+        NUMERO.setText(nro);
+        BAIRRO.setText(bairro);
+        CATEGORIA.setSelectedItem(categoria);
+        SEXO.setSelectedItem(sexo);
+    }//GEN-LAST:event_jTableMouseClicked
 
     private static boolean ValidaCPF(String CPF) {
         // considera-se erro CPF's formados por uma sequencia de numeros iguais

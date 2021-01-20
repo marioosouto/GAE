@@ -57,7 +57,7 @@ public class telaSala extends javax.swing.JFrame {
                 s.getId(),
                 s.getNome(),
                 s.getDisciplina(),
-                s.getCapacidade() });
+                s.getCapacidade()});
         }
 
     }
@@ -335,7 +335,7 @@ public class telaSala extends javax.swing.JFrame {
         // TODO add your handling code here:
         Sala s = new Sala();
         salaDAO salaDAO = new salaDAO();
-        
+
         s.setNome(nome.getText());
         s.setDisciplina(disciplina.getText());
         s.setCapacidade(Integer.parseInt(capacidade.getText()));
@@ -363,7 +363,7 @@ public class telaSala extends javax.swing.JFrame {
         if (jTable.getSelectedRow() != -1) {
             Sala s = new Sala();
             salaDAO dao = new salaDAO();
-            
+
             s.setDisciplina(disciplina.getText());
             s.setCapacidade(Integer.parseInt(capacidade.getText()));
             s.setNome(nome.getText());
@@ -381,7 +381,15 @@ public class telaSala extends javax.swing.JFrame {
 
     private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
 
-  
+        int selecionado = jTable.getSelectedRow();
+        String ref = (String) jTable.getValueAt(selecionado, 1);
+        String disc = (String) jTable.getValueAt(selecionado, 2);
+        int cap = (int) jTable.getValueAt(selecionado, 3);
+
+        nome.setText(ref);
+        disciplina.setText(disc);
+        capacidade.setText(Integer.toString(cap));
+
 
     }//GEN-LAST:event_jTableMouseClicked
 
