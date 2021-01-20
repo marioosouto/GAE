@@ -5,8 +5,10 @@
  */
 package DAOS;
 
+import Beans.Aluno;
 import Banco.ConnectionFactory;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class AlunoDAO {
                 stmt.setString(7, aluno.getSexo());
                 stmt.execute();
                 System.out.println("Aluno inserido com sucesso.");
-                 JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (SQLException e) {
@@ -49,6 +51,39 @@ public class AlunoDAO {
         }
         return aluno;
 
+    }
+
+   
+
+    public Aluno buscar(int code) {
+        try (Connection connection = new ConnectionFactory().getConnection();
+                PreparedStatement ps = createPreparedStatement(connection, code);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("idaluno");
+                String nome = rs.getString("nome");
+                String CPF = rs.getString("cpf");
+                String rua = rs.getString("rua");
+                String categoria = rs.getString("categoria");
+                String sexo = rs.getString("sexo");
+                String bairro = rs.getString("bairro");
+                String numero = rs.getString("numero");
+
+                Aluno aluno = new Aluno();
+                aluno.setIdaluno(id);
+                aluno.setNome(nome);
+                aluno.setCpf(CPF);
+                aluno.setRua(rua);
+                aluno.setCategoria(categoria);
+                aluno.setSexo(sexo);
+                aluno.setBairro(bairro);
+                aluno.setNumero(numero);
+                return aluno;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public List<Aluno> lista() {
@@ -111,7 +146,6 @@ public class AlunoDAO {
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Alterado", JOptionPane.INFORMATION_MESSAGE);
             }
 
-           
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -132,6 +166,13 @@ public class AlunoDAO {
             throw new RuntimeException(e);
         }
         return aluno;
+    }
+
+    private PreparedStatement createPreparedStatement(Connection con, int id) throws SQLException {
+        String sql = "select * from aluno where idaluno = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setLong(1, id);
+        return ps;
     }
 
 }

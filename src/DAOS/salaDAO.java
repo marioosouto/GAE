@@ -5,8 +5,11 @@
  */
 package DAOS;
 
+import Beans.Sala;
 import Banco.ConnectionFactory;
+import Beans.Instrutor;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -33,6 +36,28 @@ public class salaDAO {
             throw new RuntimeException(e);
         }
         return sala;
+    }
+    
+       public Sala buscar(int code) {
+        try (Connection connection = new ConnectionFactory().getConnection();
+                PreparedStatement ps = createPreparedStatement(connection, code);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("idsala");
+                String nome = rs.getString("nome");
+                int capacidade = rs.getInt("capacidade");
+                String materia = rs.getString("materia");
+                Sala s = new Sala();
+                s.setId(id);
+                s.setNome(nome);
+                s.setCapacidade(capacidade);
+                s.setDisciplina(materia);
+                return s;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public Sala localizar(Sala sala) {
@@ -120,6 +145,13 @@ public class salaDAO {
             throw new RuntimeException(e);
         }
         return sala;
+    }
+
+      private PreparedStatement createPreparedStatement(Connection con, int id) throws SQLException {
+        String sql = "select * from sala where idsala = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setLong(1, id);
+        return ps;
     }
 
 }

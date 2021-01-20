@@ -7,7 +7,7 @@ package Telas;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import DAOS.Instrutor;
+import Beans.Instrutor;
 import DAOS.InstrutorDAO;
 import java.awt.Color;
 import java.awt.Font;

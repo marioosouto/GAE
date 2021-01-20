@@ -5,8 +5,11 @@
  */
 package DAOS;
 
+import Beans.Instrutor;
 import Banco.ConnectionFactory;
+import Beans.Sala;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -40,7 +43,7 @@ public class InstrutorDAO {
                 stmt.setString(6, instrutor.getSexo());
                 stmt.execute();
                 System.out.println("Instrutor inserido com sucesso.");
-                 JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (SQLException e) {
@@ -48,6 +51,34 @@ public class InstrutorDAO {
         }
         return instrutor;
 
+    }
+
+    public Instrutor buscar(int code) {
+        try (Connection connection = new ConnectionFactory().getConnection();
+                PreparedStatement ps = createPreparedStatement(connection, code);
+                ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                int id = rs.getInt("idinstrutor");
+                String nome = rs.getString("nome");
+                String cpf = rs.getString("cpf");
+                String rua = rs.getString("rua");
+                String bairro = rs.getString("bairro");
+                String numero = rs.getString("numero");
+                String sexo = rs.getString("sexo");
+                Instrutor i = new Instrutor();
+                i.setIdInstrutor(id);
+                i.setNome(nome);
+                i.setCpf(cpf);
+                i.setRua(rua);
+                i.setBairro(bairro);
+                i.setNumero(numero);
+                i.setSexo(sexo);
+                return i;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
     public List<Instrutor> lista() {
@@ -63,17 +94,18 @@ public class InstrutorDAO {
                 String nome = rs.getString("nome");
                 String cpf = rs.getString("cpf");
                 String rua = rs.getString("rua");
-                String numero = rs.getString("numero");
                 String bairro = rs.getString("bairro");
+                String numero = rs.getString("numero");
                 String sexo = rs.getString("sexo");
 
                 instrutor.setIdInstrutor(id);
                 instrutor.setNome(nome);
                 instrutor.setCpf(cpf);
                 instrutor.setRua(rua);
-                instrutor.setNumero(numero);
                 instrutor.setBairro(bairro);
+                instrutor.setNumero(numero);
                 instrutor.setSexo(sexo);
+                
                 instrutores.add(instrutor);
             }
             rs.close();
@@ -83,7 +115,8 @@ public class InstrutorDAO {
         }
         return instrutores;
     }
-
+    
+   
     public Instrutor altera(Instrutor instrutor) {
         String sql = "update instrutor set nome = ?, cpf = ?,"
                 + " rua = ?, numero = ?, bairro = ?, sexo = ? where idinstrutor = ?";
@@ -107,7 +140,6 @@ public class InstrutorDAO {
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Alterado", JOptionPane.INFORMATION_MESSAGE);
             }
 
-           
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -129,5 +161,12 @@ public class InstrutorDAO {
         }
         return instrutor;
     }
+
+   private java.sql.PreparedStatement createPreparedStatement(Connection con, int id) throws SQLException {
+       String sql = "select * from instrutor where idinstrutor = ?";
+        java.sql.PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+        return ps;
+    } 
 
 }

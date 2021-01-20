@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAOS;
+package Beans;
 
 /**
  *
@@ -69,6 +69,12 @@ public class Instrutor {
     public void setIdInstrutor(int idInstrutor) {
         this.idInstrutor = idInstrutor;
     }
+
+    @Override
+    public String toString() {
+        return this.nome;
+    }
+    
 
     
     

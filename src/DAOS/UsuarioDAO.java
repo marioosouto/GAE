@@ -5,6 +5,7 @@
  */
 package DAOS;
 
+import Beans.Usuario;
 import Banco.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.ResultSet;

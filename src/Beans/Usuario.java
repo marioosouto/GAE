@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAOS;
+package Beans;
 
 /**
  *
  * @author Mario Souto
  */
-public class Sala {
+public class Usuario {
 
-    private String disciplina,nome;
-    private int id, capacidade;
+    private String nome, login, senha;
+    private int id;
 
     public String getNome() {
         return nome;
@@ -21,22 +21,21 @@ public class Sala {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
 
-    public int getCapacidade() {
-        return capacidade;
+    public String getLogin() {
+        return login;
     }
 
-    public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getDisciplina() {
-        return disciplina;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public int getId() {

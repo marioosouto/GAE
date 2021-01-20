@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import DAOS.Veiculo;
+import Beans.Veiculo;
 import DAOS.VeiculoDAO;
 import java.awt.Color;
 import java.awt.Font;
@@ -363,7 +363,7 @@ public class telaVeiculo extends javax.swing.JFrame {
         if (jTable.getSelectedRow() != -1) {
             Veiculo v = new Veiculo();
             VeiculoDAO dao = new VeiculoDAO();
-            
+
             v.setPlaca(placa.getText());
             v.setChassi(chassi.getText());
             v.setModelo(modelo.getText());
@@ -381,7 +381,13 @@ public class telaVeiculo extends javax.swing.JFrame {
 
     private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
 
-
+        int selecionado = jTable.getSelectedRow();
+        String nome = (String) jTable.getValueAt(selecionado, 1);
+        String login = (String) jTable.getValueAt(selecionado, 2);
+        String model = (String) jTable.getValueAt(selecionado, 3);
+        placa.setText(nome);
+        chassi.setText(login);
+        modelo.setText(model);
     }//GEN-LAST:event_jTableMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

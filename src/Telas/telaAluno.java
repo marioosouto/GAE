@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import DAOS.AlunoDAO;
-import DAOS.Aluno;
+import Beans.Aluno;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.InputMismatchException;
@@ -403,7 +403,6 @@ public class telaAluno extends javax.swing.JFrame {
             u.setIdaluno((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
             alunoDAO.exclui(u);
             JOptionPane.showMessageDialog(null, "Excluido com sucesso!", "Excluido", JOptionPane.INFORMATION_MESSAGE);
-
             readJTable();
 
         }

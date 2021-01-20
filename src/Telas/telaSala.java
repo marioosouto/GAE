@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import DAOS.salaDAO;
-import DAOS.Sala;
+import Beans.Sala;
 import java.awt.Color;
 import java.awt.Font;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
