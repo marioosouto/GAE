@@ -43,7 +43,7 @@ public class AlunoDAO {
                 stmt.setString(7, aluno.getSexo());
                 stmt.execute();
                 System.out.println("Aluno inserido com sucesso.");
-                JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
+
             }
 
         } catch (SQLException e) {
@@ -52,8 +52,6 @@ public class AlunoDAO {
         return aluno;
 
     }
-
-   
 
     public Aluno buscar(int code) {
         try (Connection connection = new ConnectionFactory().getConnection();

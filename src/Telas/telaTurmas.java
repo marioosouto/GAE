@@ -47,7 +47,7 @@ public class telaTurmas extends javax.swing.JFrame {
         modeloTabela.setNumRows(0);
 
         TurmaDAO dao = new TurmaDAO();
-        InstrutorDAO instrutorDAO = new InstrutorDAO();
+  
 
         for (Turma t : dao.lista()) {
 
@@ -550,7 +550,6 @@ public class telaTurmas extends javax.swing.JFrame {
         t.setSalaafk(salaSelecionada);
 
         turmaDAO.adiciona(t);
-        JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
         atualizaTabelaTurmas();
         nomeI.setText("");
         boxInstrutor.setSelectedIndex(0);
@@ -612,6 +611,7 @@ public class telaTurmas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Aluno já cadastrado na turma.", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             alunoturmaDAO.adiciona(t, a);
+             JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
             atualizaTabelaAlunosTurma();
 
         }

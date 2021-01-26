@@ -25,6 +25,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         setLayout();
+
     }
 
     /**
@@ -38,30 +39,48 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         informjLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        login = new javax.swing.JTextField();
-        senha = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
         loginLabel = new javax.swing.JLabel();
         senhaLabel = new javax.swing.JLabel();
+        login = new javax.swing.JTextField();
+        senha = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         enterjButton1 = new javax.swing.JButton();
         canceljButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         informjLabel1.setToolTipText("");
+        jPanel1.add(informjLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 92, 229, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Mario Souto\\Downloads\\bunch-of-keys-1--v1.png")); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        loginLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(51, 102, 255));
+        loginLabel.setText("LOGIN");
+        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, 32));
+
+        senhaLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        senhaLabel.setForeground(new java.awt.Color(51, 102, 255));
+        senhaLabel.setText("SENHA");
+        jPanel1.add(senhaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, 32));
 
         login.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         login.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 255), 2, true));
         login.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        login.setSelectionColor(new java.awt.Color(255, 0, 0));
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
             }
         });
+        jPanel1.add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 230, 32));
 
         senha.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         senha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 255), 2, true));
@@ -70,106 +89,47 @@ public class TelaLogin extends javax.swing.JFrame {
                 senhaActionPerformed(evt);
             }
         });
+        jPanel1.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 230, 31));
 
-        loginLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        loginLabel.setForeground(new java.awt.Color(51, 51, 255));
-        loginLabel.setText("LOGIN");
+        jLabel1.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel1.setText("IDENTIFICAÇÃO DO USUÁRIO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
-        senhaLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        senhaLabel.setForeground(new java.awt.Color(51, 51, 255));
-        senhaLabel.setText("SENHA");
-
-        enterjButton1.setBackground(new java.awt.Color(0, 0, 0));
-        enterjButton1.setForeground(new java.awt.Color(255, 255, 0));
-        enterjButton1.setText("Acessar");
+        enterjButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        enterjButton1.setForeground(new java.awt.Color(51, 102, 255));
+        enterjButton1.setText("ACESSAR");
         enterjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterjButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(enterjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 90, 40));
 
-        canceljButton2.setBackground(new java.awt.Color(0, 0, 0));
-        canceljButton2.setForeground(new java.awt.Color(255, 255, 0));
-        canceljButton2.setText("Sair");
+        canceljButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        canceljButton2.setForeground(new java.awt.Color(51, 102, 255));
+        canceljButton2.setText("SAIR");
         canceljButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canceljButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(canceljButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 290, 90, 40));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 0));
-        jButton1.setText("Limpar");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 102, 255));
+        jButton1.setText("LIMPAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 90, 40));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(senhaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(loginLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(enterjButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canceljButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(63, 63, 63))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(canceljButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(52, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(informjLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(informjLabel1))
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
+        jLabel3.setFont(new java.awt.Font("Calibri", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 102, 255));
+        jLabel3.setText("SISTEMA GESTÃO DE AUTO ESCOLAS");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,7 +139,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
         );
 
         pack();
@@ -187,30 +147,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
 
-
     }//GEN-LAST:event_senhaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        login.setText("");
-        senha.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void canceljButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canceljButton2ActionPerformed
-
-        dispose();
-    }//GEN-LAST:event_canceljButton2ActionPerformed
-
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginActionPerformed
-
     private void enterjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterjButton1ActionPerformed
-
         Usuario logado = this.logar();
         if (logado == null) {
             JOptionPane.showMessageDialog(rootPane, "Dados incorretos!\nPor favor verifique o login ou a senha e tente novamente.");
         } else {
-
             telaPrincipal tela = new telaPrincipal();
             tela.setExtendedState(tela.MAXIMIZED_BOTH);
             tela.setVisible(true);
@@ -219,8 +162,21 @@ public class TelaLogin extends javax.swing.JFrame {
 
         }
         login.setText("");
-        senha.setText("");
+        senha.setText("");    
     }//GEN-LAST:event_enterjButton1ActionPerformed
+
+    private void canceljButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canceljButton2ActionPerformed
+        dispose();        
+    }//GEN-LAST:event_canceljButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        login.setText("");
+        senha.setText("");         
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
 
     private Usuario logar() {
 
@@ -255,7 +211,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setVisible(true);
         dispose();
-        setUndecorated(true);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -303,8 +258,10 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton enterjButton1;
     private javax.swing.JLabel informjLabel1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField login;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JPasswordField senha;

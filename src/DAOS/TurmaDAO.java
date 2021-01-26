@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class TurmaDAO {
 
@@ -22,6 +23,7 @@ public class TurmaDAO {
             stmt.setInt(3, turma.getSalaafk().getId());
             stmt.execute();
             System.out.println("Elemento inserido com sucesso.");
+            JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
