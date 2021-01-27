@@ -43,6 +43,7 @@ public class AlunoDAO {
                 stmt.setString(7, aluno.getSexo());
                 stmt.execute();
                 System.out.println("Aluno inserido com sucesso.");
+                JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
 
             }
 

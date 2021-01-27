@@ -39,6 +39,7 @@ public class telaTurmas extends javax.swing.JFrame {
         comboBOX2();
         comboBOX3();
         comboBOX4();
+    
     }
 
     public void atualizaTabelaTurmas() {
@@ -47,7 +48,6 @@ public class telaTurmas extends javax.swing.JFrame {
         modeloTabela.setNumRows(0);
 
         TurmaDAO dao = new TurmaDAO();
-  
 
         for (Turma t : dao.lista()) {
 
@@ -87,12 +87,15 @@ public class telaTurmas extends javax.swing.JFrame {
 
         for (AlunoTurma a : dao.lista()) {
 
-            modeloTabela3.addRow(new Object[]{
-                a.getId(),
-                a.getIdTurma().getNometurma(),
-                a.getIdAluno().getNome(),
-                a.getIdTurma().getInstrutor(),
-                a.getIdTurma().getSalaafk()});
+            if (a.getIdTurma().equals(a)) {
+                modeloTabela3.addRow(new Object[]{
+                    a.getId(),
+                    a.getIdTurma().getNometurma(),
+                    a.getIdAluno().getNome(),
+                    a.getIdTurma().getInstrutor(),
+                    a.getIdTurma().getSalaafk()});
+            }
+
         }
 
     }
@@ -101,7 +104,7 @@ public class telaTurmas extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (tabelaTurmas.getSelectedRow() != -1) {
-            nomeI.setText(tabelaTurmas.getValueAt(tabelaTurmas.getSelectedRow(), 2).toString());
+            turmaI.setText(tabelaTurmas.getValueAt(tabelaTurmas.getSelectedRow(), 2).toString());
             boxInstrutor.setSelectedItem(tabelaTurmas.getValueAt(tabelaTurmas.getSelectedRow(), 3).toString());
 
         }
@@ -164,6 +167,8 @@ public class telaTurmas extends javax.swing.JFrame {
 
     }
 
+ 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,14 +184,14 @@ public class telaTurmas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        nomeI = new javax.swing.JTextField();
+        turmaI = new javax.swing.JTextField();
         inserir = new javax.swing.JButton();
         limpar = new javax.swing.JButton();
         boxInstrutor = new javax.swing.JComboBox<>();
         boxSala = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        nomeE = new javax.swing.JTextField();
+        turmaE = new javax.swing.JTextField();
         editar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         boxSala2 = new javax.swing.JComboBox<>();
@@ -238,7 +243,7 @@ public class telaTurmas extends javax.swing.JFrame {
 
         jLabel3.setText("INSTRUTOR ");
 
-        jLabel4.setText("SALA");
+        jLabel4.setText("DISCIPLINA");
 
         inserir.setText("INSERIR");
         inserir.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +275,7 @@ public class telaTurmas extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(76, 76, 76)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeI)
+                                    .addComponent(turmaI)
                                     .addComponent(boxInstrutor, 0, 159, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(75, 75, 75)
@@ -288,7 +293,7 @@ public class telaTurmas extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nomeI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(turmaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -315,7 +320,7 @@ public class telaTurmas extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setText("SALA");
+        jLabel13.setText("DISCIPLINA");
 
         jLabel8.setText("INSTRUTOR ");
 
@@ -340,7 +345,7 @@ public class telaTurmas extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
@@ -349,7 +354,7 @@ public class telaTurmas extends javax.swing.JFrame {
                                 .addComponent(editar))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(boxInstrutor2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nomeE, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                                .addComponent(turmaE, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                                 .addComponent(boxSala2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -358,7 +363,7 @@ public class telaTurmas extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turmaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -372,10 +377,10 @@ public class telaTurmas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editar)
                     .addComponent(limpar1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jLabel9.setText("(Alunos para inserir na Turma)");
+        jLabel9.setText("(Para inserir alunos na Turma selecione a turma e insira o aluno.)");
 
         jLabel10.setText("(Alunos na Turma)");
 
@@ -458,7 +463,7 @@ public class telaTurmas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -515,7 +520,7 @@ public class telaTurmas extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(inserirJogadores)
                             .addComponent(excluirJogadores)
@@ -532,7 +537,14 @@ public class telaTurmas extends javax.swing.JFrame {
 
     private void tabelaTurmasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaTurmasMouseClicked
 
+        int selecionado = tabelaTurmas.getSelectedRow();
+        String turma = (String) tabelaTurmas.getValueAt(selecionado, 1);
+        Instrutor instrutor = (Instrutor) tabelaTurmas.getValueAt(selecionado, 2);
+        Sala sala = (Sala) tabelaTurmas.getValueAt(selecionado, 3);
 
+        turmaE.setText(turma);
+        boxInstrutor2.getModel().setSelectedItem(instrutor);
+        boxSala2.getModel().setSelectedItem(sala);
     }//GEN-LAST:event_tabelaTurmasMouseClicked
 
     private void inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserirActionPerformed
@@ -542,7 +554,7 @@ public class telaTurmas extends javax.swing.JFrame {
         Instrutor I = new Instrutor();
         Sala s = new Sala();
 
-        t.setNometurma(nomeI.getText());
+        t.setNometurma(turmaI.getText());
         Instrutor instrutorSelecionado = (Instrutor) this.boxInstrutor.getSelectedItem();
         t.setInstrutor(instrutorSelecionado);
 
@@ -551,7 +563,7 @@ public class telaTurmas extends javax.swing.JFrame {
 
         turmaDAO.adiciona(t);
         atualizaTabelaTurmas();
-        nomeI.setText("");
+        turmaI.setText("");
         boxInstrutor.setSelectedIndex(0);
         boxSala.setSelectedIndex(0);
 
@@ -559,7 +571,7 @@ public class telaTurmas extends javax.swing.JFrame {
     }//GEN-LAST:event_inserirActionPerformed
 
     private void limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparActionPerformed
-        nomeI.setText("");
+        turmaI.setText("");
         boxInstrutor.setSelectedIndex(0);
         boxSala.setSelectedIndex(0);
 
@@ -571,7 +583,7 @@ public class telaTurmas extends javax.swing.JFrame {
             Turma t = new Turma();
             TurmaDAO dao = new TurmaDAO();
 
-            t.setNometurma(nomeE.getText());
+            t.setNometurma(turmaE.getText());
             Instrutor instrutorSelecionado = (Instrutor) this.boxInstrutor2.getSelectedItem();
             t.setInstrutor(instrutorSelecionado);
 
@@ -582,7 +594,7 @@ public class telaTurmas extends javax.swing.JFrame {
             atualizaTabelaTurmas();
             atualizaTabelaAlunosTurma();
 
-            nomeE.setText("");
+            turmaE.setText("");
             boxInstrutor2.setSelectedIndex(0);
             boxSala2.setSelectedIndex(0);
 
@@ -611,7 +623,7 @@ public class telaTurmas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Aluno já cadastrado na turma.", "ERRO", JOptionPane.ERROR_MESSAGE);
         } else {
             alunoturmaDAO.adiciona(t, a);
-             JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Adicionado com sucesso!", "Adicionado", JOptionPane.INFORMATION_MESSAGE);
             atualizaTabelaAlunosTurma();
 
         }
@@ -659,7 +671,7 @@ public class telaTurmas extends javax.swing.JFrame {
 
     private void limpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpar1ActionPerformed
         // TODO add your handling code here:
-        nomeE.setText("");
+        turmaE.setText("");
         boxInstrutor2.setSelectedIndex(0);
         boxSala2.setSelectedIndex(0);
 
@@ -730,11 +742,11 @@ public class telaTurmas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton limpar;
     private javax.swing.JButton limpar1;
-    private javax.swing.JTextField nomeE;
-    private javax.swing.JTextField nomeI;
     private javax.swing.JTable tabelaAlunos;
     private javax.swing.JTable tabelaAlunosTurma;
     private javax.swing.JTable tabelaTurmas;
+    private javax.swing.JTextField turmaE;
+    private javax.swing.JTextField turmaI;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

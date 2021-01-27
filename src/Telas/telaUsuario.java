@@ -321,7 +321,6 @@ public class telaUsuario extends javax.swing.JFrame {
             u.setLogin(LOGIN.getText());
             String senha = criptografa(SENHA.getText());
             u.setSenha(senha);
-
             u.setId((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
             dao.altera(u);
             JOptionPane.showMessageDialog(null, "Alterado com sucesso!", "Alterado", JOptionPane.INFORMATION_MESSAGE);

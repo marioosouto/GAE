@@ -11,7 +11,6 @@ import DAOS.AlunoDAO;
 import Beans.Aluno;
 import java.util.InputMismatchException;
 
-
 /**
  *
  * @author Mario Souto
@@ -364,6 +363,13 @@ public class telaAluno extends javax.swing.JFrame {
             alunoDAO.exclui(u);
             JOptionPane.showMessageDialog(null, "Excluido com sucesso!", "Excluido", JOptionPane.INFORMATION_MESSAGE);
             readJTable();
+            NOME.setText("");
+            CPF.setText("");
+            RUA.setText("");
+            NUMERO.setText("");
+            BAIRRO.setText("");
+            CATEGORIA.setSelectedIndex(0);
+            SEXO.setSelectedIndex(0);
 
         }
     }//GEN-LAST:event_excluirActionPerformed
@@ -408,8 +414,8 @@ public class telaAluno extends javax.swing.JFrame {
 
                 a.setNome(NOME.getText());
                 a.setCpf(CPF.getText());
-                a.setRua(NOME.getText());
-                a.setBairro(NUMERO.getText());
+                a.setRua(RUA.getText());
+                a.setBairro(BAIRRO.getText());
                 a.setNumero(NUMERO.getText());
                 a.setCategoria((String) CATEGORIA.getSelectedItem());
                 a.setSexo((String) SEXO.getSelectedItem());
@@ -418,10 +424,10 @@ public class telaAluno extends javax.swing.JFrame {
                 readJTable();
 
                 NOME.setText("");
-                NOME.setText("");
-                NOME.setText("");
+                CPF.setText("");
+                RUA.setText("");
                 NUMERO.setText("");
-                NUMERO.setText("");
+                BAIRRO.setText("");
                 CATEGORIA.setSelectedIndex(0);
                 SEXO.setSelectedIndex(0);
 
